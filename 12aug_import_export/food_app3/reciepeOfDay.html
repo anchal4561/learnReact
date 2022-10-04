@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="navbar_container"></div>
+    <div id="recipeofdayresult"></div>
+</body>
+</html>
+<script type="module">
+     import {navbar,navbarJS} from "./components/navbar.js"
+    import {getData,append} from "./scripts/fetch&append.js"
+
+    document.getElementById("navbar_container").innerHTML=navbar();
+    navbarJS()
+     
+     let res = await getData(`https://www.themealdb.com/api/json/v1/1/random.php`);
+        console.log(res);
+     let container = document.querySelector("#recipeofdayresult")
+        append(res.meals,container)
+
+</script>

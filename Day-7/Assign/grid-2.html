@@ -1,0 +1,64 @@
+<htm>
+    <head>
+        <title>
+            Grid1
+        </title>
+        <style>
+            #container{
+                display:grid;
+                grid-template-columns: repeat(4,100px);
+                grid-template-rows: repeat(2,60px);
+                gap: 15px;
+                margin:auto;
+                margin-top: 70px;
+                justify-content: center;
+                grid-template-areas: 
+                "A A B E"
+                "C D B E"
+            }
+            #container>div{
+                background-color: gray;
+                color: white;
+                font-size: 20px;
+                border-radius: 10px;
+                padding: 15px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+            }
+            #container>div:nth-child(1)
+            {
+                grid-area: A;
+            }
+            #container>div:nth-child(2)
+            {
+                grid-area: B;
+            }
+            #container>div:nth-child(3)
+            {
+                grid-area: C;
+            }
+            #container>div:nth-child(4)
+            {
+                grid-area: D;
+            }
+            #container>div:nth-child(5)
+            {
+                grid-area: E;
+                margin-bottom: -15px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+            <div>E</div>
+        </div>
+
+    </body>
+</htm>

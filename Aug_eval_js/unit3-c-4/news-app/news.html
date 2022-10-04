@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailed News</title>
+  <style>
+     #navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 8%;
+        padding-right: 8%;
+        border:2px solid black;
+        margin: auto;
+        padding-top: 8px;
+        padding-bottom: 15px;
+        margin-top:0px;
+        margin-bottom:4px;
+      }
+    
+      #main{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 20% 80%;
+      }
+      img{
+        width: 90%;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <!-- - The nav-bar will have link for home page(Id:- "home_link") and link for world news(Id:- "world_news_link). -->
+    <div> <a href="index.html">Home</a></div>
+    <div><a href="worldNews.html">World News</a></div>
+  </div>
+    <div id="main">
+      <div  id="sidebar"> </div>
+      <div>
+        <div id="show_news"></div>
+      </div>
+      
+    </div>
+  </body>
+</html>
+<script src="./scripts/news.js"></script>
+<script type="module">
+  import {sideBar,showDetails} from "./components/sideBar.js"
+  document.querySelector("#sidebar").innerHTML = sideBar();
+  showDetails();
+</script>

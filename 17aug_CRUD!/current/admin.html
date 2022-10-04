@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #showList{
+            width: 60%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+            margin-top: 60px;
+        }
+         #showList>div{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            text-align: center;
+            box-shadow: rgba(50, 50, 105, 0.25) 0px 2px 5px 0px, rgba(0, 0, 0, 0.1) 0px 1px 1px 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Add Post</h1>
+    <input type="text" id="id" placeholder="id"/>
+    <input type="text" id="title" placeholder="Title"/>
+    <input type="text" id="author" placeholder="Author"/>
+    <button onclick="addProduct()">Submit</button>
+</div>
+<div>
+<h1>Delete post</h1>
+<input type="text" id="delete_id" placeholder="Enter id to be delete"/>
+<button onclick="deletePost()">Delete</button>
+</div>
+<div>
+    <h1>Update Post</h1>
+    <input type="text" id="update_id" placeholder="Enter id to Update">
+    <input type="text" id="update_title" placeholder="Enter new title to Update">
+    <input type="text" id="update_author" placeholder="Enter new author to Update">
+
+    <button onclick="updatePost()">Update</button>
+</div>
+<div id="showList"></div>
+</body>
+</html>
+<script src="admin.js"></script>

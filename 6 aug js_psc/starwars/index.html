@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 96vh;
+            width: 95vw;
+            background-image: url("https://cdn-ssl.s7.disneystore.com/is/image/ShopDisney/mb_franchise-star-wars_20190701_2x?fit=constrain&cropN=0,0,1,1&fmt=jpeg&qlt=90&wid=1200");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #container{
+           display:flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           width: 100%;
+           height: 100%;
+        }
+
+        #main{
+            border: 2px solid white;
+            width: 20rem;
+            height: 20rem;
+            border-radius: 15px;
+            font-size: 20px;
+
+            /* height: 200px;
+            width: 400px; */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            gap: 5px;
+            overflow: scroll;
+        }
+        #main1{
+            display: none;
+        }
+        #main>div{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 4px;
+        }
+        h1{
+            color: white;
+            font-size: 60px;
+            align-self: center;
+            margin-top: -70px;
+        }
+        #character{
+            width: 20rem;
+            height: 2rem;
+            border-radius: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>STAR WARS</h1>
+        <input type="text" id="character" oninput="debounce(getCharacter,1000)">
+        <div id="main1">
+            <div id="main"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="index.js"></script>

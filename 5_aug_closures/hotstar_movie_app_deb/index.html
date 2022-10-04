@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closuers</title>
+    <style>
+           
+           input{
+                width:196px;
+            }
+
+            #movies{
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            overflow: scroll;
+        }
+        #movies>div{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 4px;
+        }
+        #movies>div>img{
+            width: 40%;
+        }
+        #main{
+            width:40%;
+            height:600px;
+            margin-top: 20px;
+            text-align:start;
+            margin-right:-10%;
+            padding:4px;
+            display: none;
+            background-image: "https://pbs.twimg.com/ext_tw_video_thumb/1479056860242006021/pu/img/j9PdPDfpWgs2p0w3.jpg";
+        }
+
+        #main>div{
+            text-align: start;
+            display: flex;
+            gap: 5px;
+            padding: 4px;
+        }
+        #main>div>img{
+            width: 30%;
+            height:200px;
+            margin-left:100px;
+            padding:18px;
+        }
+
+        #main>div>p{
+            margin-left:40px;
+            font-size:20px;
+            color:#FFFFFFCC;
+        }
+
+        </style>
+    </head>
+    <body>
+        <h1>Hotstar Movies Search</h1>
+        <input  oninput="debounce(main,1000)" type="text" id="query"/>
+        <div id="movies"> </div>
+        <div id="main1">
+            <div id="main"></div>
+    </body>
+</html>
+<script src="index.js"></script>

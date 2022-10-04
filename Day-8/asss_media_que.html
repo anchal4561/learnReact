@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Media Queries</title>
+        <style>
+            #navbar{
+                background-color: yellow;
+                font-size: 30px;
+                padding:20px;
+                margin-bottom: 20px;
+            }
+            #boxes{
+                display:grid;
+                grid-template-columns: reeat(4,1fr);
+                grid-template-rows: 400px;
+            gap:20px;
+            font-size: 40px;
+        }
+            #boxes>div:nth-child(1){
+                background-color: red;
+            order:1;
+            }
+            #boxes>div:nth-child(2){
+                background-color:green;
+            order:0;
+            }
+            #boxes>div:nth-child(3){
+                background-color:blue;
+                order:0;
+            }
+            #boxes>div:nth-child(4){
+                background-color: grey;
+                order:0;
+            }
+           
+            @media all and (min-width: 481px) and (max-width: 781px){
+                /* medium screens */
+                #boxes{
+                grid-template-columns: repeat(2,1fr);
+                grid-template-rows: repeat(2,200px);
+                }
+                #boxes>div:nth-child(1){
+                background-color: red;
+            order:1;
+            }
+            #boxes>div:nth-child(3){
+                background-color:blue;
+            order:3;
+            }
+            #boxes>div:nth-child(2){
+                background-color:green;
+                order:2;
+            }
+            #boxes>div:nth-child(4){
+                background-color: grey;
+                order:4;
+            }
+            }   
+            @media all and (min-width:320px) and (max-width:480px){
+                
+            /* small screens */
+            #boxes{
+                grid-template-columns: repeat(1,1fr);
+                grid-template-rows: repeat(4,200px);
+                }
+                /* #boxes>div:nth-child(1){
+                background-color: red;
+            order:1;
+            }
+            #boxes>div:nth-child(3){
+                background-color:blue;
+            order:3;
+            }
+            #boxes>div:nth-child(2){
+                background-color:green;
+                order:4;
+            }
+            #boxes>div:nth-child(4){
+                background-color: grey;
+                order:2;
+            } */
+            
+            }   
+
+        </style>
+    </head>
+    <body>
+        <div id="nabar">Navigation</div>
+        <div id="boxes">
+            <div>box 1</div>
+            <div>box 2</div>
+            <div>box 3</div>
+            <div>box 4</div>
+        </div>
+    </body>
+</html>

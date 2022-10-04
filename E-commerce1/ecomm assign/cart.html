@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #container{
+        width: 80vw;
+        height:auto;
+        margin:auto;
+    }
+    h1{
+        text-align: center;
+    }
+    #container>div{
+        width: 100%;
+        border-radius: 20px;
+        display: grid;
+        margin: auto;
+        grid-template-columns: 1fr 3fr 120px 1fr .5fr;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    }
+   #container>div>div{
+        margin: auto 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+    }
+     #container>div>div>p{   
+             border: 1px solid black;
+             width: 20px;
+             text-align: center;
+    }
+    #total-item{
+        width: 93%;
+         display: flex;
+         justify-content: flex-end;
+         gap: 30px;
+    }
+    h3{
+        text-align: end;
+    }
+    img{
+        display: block;
+        margin:5px auto 3px 5px;
+        width: 50%;
+        aspect-ratio:16/10;
+    }
+    #name{
+        font-size: 1.2vw;
+    }
+    button{
+        height: 20px;
+    }
+    </style>
+</head>
+<body>
+      <h1>CART ITEM</h1>
+      <div id="total-item">
+      <h3>Item:- <span id="totalItem">0;</span></h3>
+      <h3>Total:- <span id="totalPrice">0</span></h3>
+      </div>
+   
+    <div id="container">
+    </div>
+</body>
+</html>
+<script>
+    let cartData=JSON.parse(localStorage.getItem("cartItem"))||[]
+    let totalPrice=document.querySelector("#totalPrice")
+    Display(cartData)
+    function Display(data)
+    {
+        document.querySelector("#container").innerHTML=null
+        let total=0
+        let item=0
+        data.map(function(elem,index){
+            total+=Number(elem.price*elem.quantity)
+            item+=+(elem.quantity);
+            let cartDiv= document.createElement("div");
+            let image= document.createElement("img")
+            let pName = document.createElement("p");
+            let buttonDiv=document.createElement("div");
+            let lowBtn = document.createElement("button")
+            let quantity=document.createElement("p")
+              quantity.id="quantity";
+            let highBtn = document.createElement("button")
+            let price = document.createElement("p")
+            let deleteBtn = document.createElement("button")
+            image.setAttribute("src",elem.image_url)
+            pName.setAttribute("id","name");
+            pName.innerText=elem.name
+            lowBtn.innerText="<"
+            highBtn.innerText=">"
+            quantity.innerText=elem.quantity;
+            price.innerText=elem.price*elem.quantity;
+            lowBtn.addEventListener("click", function(){
+                decQuantity(elem)});     
+            highBtn.addEventListener("click", function(){
+                incQuantity(elem)});
+            deleteBtn.innerText="Delete"
+            deleteBtn.addEventListener("click",function(e){
+                  cartData.splice(index,1);
+                  totalPrice.innerText=0;
+                  Display(cartData);
+                  localStorage.setItem("cartItem",JSON.stringify(cartData))
+            })
+            totalPrice.innerText=total;
+            totalItem.innerText=item;
+            buttonDiv.append(lowBtn,quantity,highBtn)
+            cartDiv.append(image,pName,buttonDiv,price,deleteBtn)
+            document.querySelector("#container").append(cartDiv);
+            }
+    )}
+
+    function decQuantity(e){
+          if(e.quantity==1){
+            e.quantity=1;
+          }else{
+          e.quantity--
+          localStorage.setItem("cartItem",JSON.stringify(cartData))
+          Display(cartData);
+          }
+         
+
+    }
+    function incQuantity(e){
+          e.quantity++
+          localStorage.setItem("cartItem",JSON.stringify(cartData))
+          Display(cartData);
+    }
+</script>

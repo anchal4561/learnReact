@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="menu_input">
+        <input type="text" id="image" placeholder="Menu Image"/>
+        <input type="text" id="title" placeholder="Menu Title"/>
+        <input type="number" id="price" placeholder="Menu Price"/>
+        <button onclick="submit()">Submit</button>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    let admin=
+    {
+        name:"rekha",
+        email:"111000@ymail.com"
+    }
+    let submit= async ()=>{
+        let user_details=JSON.parse(localStorage.getItem('user_details'))
+      if(!user_details){
+        alert("login again");
+        window.location.href="/login.html"
+      }
+        let user=  await getProfile(user_details.username,user_details.token)
+        console.log(user);
+
+        if(user.name !==admin.name){
+            alert("Not authorised");
+            return;
+        }
+        let item={
+            title:document.getElementById("title").value,
+            image:document.getElementById("image").value,
+            price:document.getElementById("price").value
+        }
+        let res=await fetch(`http://localhost:3000/menu`,{
+            method:"POST",
+            body:JSON.stringify(item),
+            headers:{
+                'Content-Type':'application/json',
+            }
+            
+        })
+        res=await res.json();
+        console.log("res:",res)
+    }
+
+    let getProfile=async (username,token)=>{
+    console.log(username,token)
+    let res=await fetch(`https://masai-api-mocker.herokuapp.com/user/${username}`,{
+        headers:{
+            'Content-Type' : 'application/json',
+            Authorization : `Bearer ${token}`
+        }
+    })
+    let data=await res.json()
+    console.log(data)
+    return data;
+}
+
+    //net banking
+    //Railway ticket
+
+    //session storage:-token()
+
+</script>
