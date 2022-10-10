@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 const initialState={
     name:"",
@@ -10,17 +10,23 @@ const initialState={
 function Form(){
     const [formData,setFormData]=useState(initialState)
     const [users,setUsers]=useState([]);
+    const fileRef=useRef();
     
     const handleChange=(e)=>{
         const {type,checked,value,name}=e.target;
         const inputValue=type==="checkbox"?checked:value;
         setFormData({...formData,[name]:inputValue})
     }
+    const sendFile=()=>{
+        const fileData=fileRef.current.files[0]
+        setFormData({...formData,"file":fileData})
+    }
 
     const handleSubmit=(e)=>{
         e.preventDefault();
         console.log(formData);
         setUsers([...users,formData])
+
     }
 
     const {name,gender,role,maritalStatus}=formData;
@@ -64,6 +70,10 @@ function Form(){
         onChange={handleChange}
         />
 
+        <br/>
+        <br/>
+
+        <input type="file" name="file" ref={fileRef} onChange={sendFile}/>
         <br/>
         <br/>
         <input type="submit"/>
