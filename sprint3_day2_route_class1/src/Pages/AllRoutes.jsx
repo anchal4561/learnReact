@@ -6,6 +6,7 @@ import Contact from "./Contact"
 import Users from "./Users"
 import SingleUserPage from "./SingleUserPage"
 import PrivateRoute from "../Components/PrivateRoute"
+import PageNotFound from "./PageNotFound"
 function AllRoutes()
 {
  return(
@@ -21,6 +22,8 @@ function AllRoutes()
         {/* if path is /user/anything */}
         <Route path ="/users/:user_id" 
         element={<PrivateRoute><SingleUserPage/></PrivateRoute>}></Route>
+         <Route path ="*" 
+        element={<PageNotFound/>}></Route>
       </Routes>
  )
 
