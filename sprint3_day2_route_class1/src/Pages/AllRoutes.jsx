@@ -5,6 +5,7 @@ import About from "./About"
 import Contact from "./Contact"
 import Users from "./Users"
 import SingleUserPage from "./SingleUserPage"
+import PrivateRoute from "../Components/PrivateRoute"
 function AllRoutes()
 {
  return(
@@ -15,11 +16,11 @@ function AllRoutes()
         <Route path ="/" element={<Home/>}></Route>
         <Route path ="/about" element={<About/>}></Route>
         <Route path ="/contact" element={<Contact/>}></Route>
-        <Route path ="/users" element={<Users/>}></Route>
+        <Route path ="/users" element={<PrivateRoute><Users/></PrivateRoute>}></Route>
         
         {/* if path is /user/anything */}
-        <Route path ="/users/:id" 
-        element={<SingleUserPage/>}></Route>
+        <Route path ="/users/:user_id" 
+        element={<PrivateRoute><SingleUserPage/></PrivateRoute>}></Route>
       </Routes>
  )
 
