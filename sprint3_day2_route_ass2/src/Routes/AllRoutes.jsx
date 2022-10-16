@@ -10,6 +10,8 @@ import ContactUs from "../Pages/ContactUs";
 import Jwellery from "../Pages/Jwellery"
 import PageNotFound from "../Pages/PageNotFound"
 import SingleProduct from "../Pages/SingleProduct"
+import PrivateRoute from "../Components/PrivateRoute"
+import ShoppingCart from "../Pages/ShoppingCart"
 function AllRoutes(){
     return(
         <Routes>
@@ -22,6 +24,13 @@ function AllRoutes(){
             <Route path ="/contact" element={<ContactUs/>}></Route>
             <Route path="/jewelery" element={<Jwellery />}></Route>
             <Route path='/products/:id' element={<SingleProduct/>}></Route>
+            <Route path="/shoppingcart" element={
+                <PrivateRoute>
+                    <ShoppingCart />
+                </PrivateRoute>
+                    
+                
+                }></Route>
             <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
     )

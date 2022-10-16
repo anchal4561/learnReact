@@ -1,6 +1,6 @@
 import React  from "react";
 import styles from "./Navbar.module.css"
-import {NavLink,useNavigate} from "react-router-dom"
+import {NavLink,Link,useNavigate} from "react-router-dom"
 function Navbar(){
 
     const links=[
@@ -27,6 +27,13 @@ return (
                 {link.title}
             </NavLink>
         ))}
+         <Link to="/shoppingcart">
+        <img
+          style={{ width: "25px" }}
+          src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png"
+          alt=""
+        />
+      </Link>
         <button onClick={()=>navigate("/login")}>Login</button> 
         </div>
     )
