@@ -7,7 +7,7 @@ function Navbar(){
         { path :"/" ,title:"Home"},
         { path:"/mens" ,title:"Mens"},
         {path :"/womens",title:"Womens" },
-        {path :"/kids",title:"Kids" }
+        {path :"/jewelery",title:"Jwelery" }
     ]
 
 
