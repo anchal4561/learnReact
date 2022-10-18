@@ -13,6 +13,19 @@ const getCurrentFromUrl=(value)=>{
     return value
 }
 
+function getUrl(url,sort,orderBy,filterBy){
+    if(sort && orderBy && filterBy){
+        url=`${url}&_sort=${sort}&_order=${orderBy}&_category=${filterBy}`
+    }
+    else if(sort && orderBy){
+        url=`${url}&_sort=${sort}&_order=${orderBy}`
+    }
+    else if(filterBy){
+        url=`${url}&_category=${filterBy}`
+
+    }
+    return url
+}
 
 function AllProducts(){
 
@@ -21,8 +34,23 @@ function AllProducts(){
     const initialPage=getCurrentFromUrl(searchParams.get("page"));
     const [page,setPage]=useState(initialPage);
     const [text,setText]=useState('')
+   
+   ///sorting
+   const sort="price"
+   const [orderBy,setOrderBy]=React.useState("")
+    const [filterBy,setFilterBy]=React.useState("")
+   //filter
+
+   
     useEffect(()=>{
-        fetch(`http://localhost:3000/products?_page=${page}&_limit=2&q=${text}`)
+        
+        let apiUrl=getUrl(
+            `http://localhost:3000/products?_page=${page}&_limit=2&q=${text}`,
+            sort,
+            orderBy,
+            filterBy
+        )
+        fetch(apiUrl)
         .then((res)=>{
             return res.json()
         })
@@ -30,19 +58,37 @@ function AllProducts(){
             console.log(data);
             setData(data)
         })
-    },[page,text])
+    },[page,text,orderBy,filterBy])
 
     useEffect(()=>{
+        let paramsObj={page}
+        if(!orderBy){
+            paramsObj.orderBy=orderBy
+        }
+        if(filterBy){
+            paramsObj.filterBy=filterBy
+        }
+        setSearchParams(paramsObj)
         if(!text){
             setSearchParams({page})
         }
         else{
             setSearchParams({page,text})
         }
-    },[page,text])
+    },[page,text,orderBy,filterBy])
 
     return (
+        
         <div style={{width:"100%",display:"grid",marginTop:"50px", textAlign:"center", justifyContent:"center"}}>
+            <button onClick={()=>setOrderBy("asc")}>order by price-asc</button>
+            <button onClick={()=>setOrderBy("desc")}>order by price-desc</button>
+            <button onClick={()=>setOrderBy("")}>order by price-reset</button>
+            
+             <button onClick={()=>setFilterBy("Shirt")}>Filter by Shirt</button>
+             <button onClick={()=>setFilterBy("Watch")}>Filter by Watch</button>
+             <button onClick={()=>setFilterBy("Pants")}>Filter by Pants</button>
+             <button onClick={()=>setFilterBy("")}>Reset Filter</button>
+
             <input type="text" value={text} onChange={(e)=>{setText(e.target.value)}}></input>
         <table border={"2px"}>
                 <thead>
