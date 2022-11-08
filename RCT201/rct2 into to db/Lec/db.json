@@ -1,0 +1,8 @@
+{
+    "users":[
+
+    ],
+    "posts":[
+        {"name":"eya","lname":"goyal", "gender":"female"},{"name":"jiya", "lname":"singhal","gender":"female"},{"name":"riya","lname":"agrawal","gender":"female"}
+    ]
+}
