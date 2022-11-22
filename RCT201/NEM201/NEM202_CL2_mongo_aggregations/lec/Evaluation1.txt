@@ -1,0 +1,28 @@
+//1
+db.world.aggregate([{$match:{Region:"EASTERN EUROPE"}},{$group:{_id:"$Region", total:{$sum:"$Population"}}}])
+//2
+db.world.aggregate([{$group:{_id:{region:"$Region",country:"$Country"},pop:{$sum:"$Population"}}},{$group:{_id:"$_id.region",avgCountrypop:{$avg:"$pop"}}}])
+
+//3
+ db.world.aggregate([{$group:{_id:"world", avgBirthrate:{$avg:"$Birthrate"}}}])
+
+ //4
+ db.countries.aggregate([{$sort:{"GDP ($ per capita)":1}},{$sort:{Population:-1}},{$limit:10}]
+
+//5
+db.world.aggregate([{$match:{Birthrate:{$lt:20}}},{$group:{_id:"$Region"}},{$sort:{Birthrate:1}},{$limit:1}])
+
+ //6
+ db.world.aggregate([{$group:{_id:{region:"$Region"},total:{$sum:"$Population"}}}])
+
+ //7
+db.world.aggregate([{$group:{_id:"$Region", avg_rate:{$avg:"$Birthrate"}}},{$sort:{"avg_rate":1}}])
+
+//8
+db.world.aggregate([{$group:{_id:{country:"$Country"}},{$sort:{"Population":1}},{$skip:10},{$limit:10}])
+
+//9
+db.world.updateMany({PhonesPerThousand:{$gt:400}},{$set:{PhonesPerThousand:1000}})
+
+//10
+db.world.updateMany({},{$set:{Climate:0}})
