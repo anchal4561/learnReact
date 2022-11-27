@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+        <style>
+            .box{
+                background-color: yellow;
+               display: flex;
+               padding:20px;
+               height:400px;
+
+               /* flex-direc-> row /column/row-reverse/column-reverse */
+               flex-direction: row;
+               /* justify content->center, end,space-between,flex-start(default),space-around ,space-evenly*/
+                /*justify content only for horizontal content  */
+               justify-content: flex-start;
+                /* [vertcally]align items ->default stretch ,center ,flex-end,flex-start */
+               align-items:stretch;
+                /*(for mobile)wrap up content using flex-wrap [wrp/npwrap/wrap-reverse] */
+               flex-wrap:wrap;
+               /* for vertical align-content center, end,space-between,flex-start(default),space-around ,space-evenly*/
+               align-content:space-around;
+
+        
+            }
+            .box>div{
+               
+                padding: 30px;
+            }
+
+            .box>div:nth-child(1){
+                background-color: green;
+            /* Higher the order value last the element will be */
+            order:0;
+            
+            /* flex-grow increses the width Take remaining space */
+            flex-grow:2;
+            flex-basis:300px
+                
+
+        }
+
+            .box>div:nth-child(2){
+                background-color: blue;
+            
+                flex-grow:1;
+            }
+            .box>div:nth-child(3){
+                background-color: red;
+                flex-shrink:1;
+            }
+            .box>div:nth-child(4){
+                background-color: red;
+            }
+            .box>div:nth-child(5){
+                background-color: red;
+                order:1
+            }
+            .box>div:nth-child(6){
+                background-color: red;
+            order:10;
+        }
+            .box>div:nth-child(7){
+                background-color: red;
+                order: 2;
+            }
+            .box>div:nth-child(8){
+                background-color: red;
+            }
+            .box>div:nth-child(9){
+                background-color: red;
+                order:20;
+            }
+        </style>
+    </head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>
+            2
+        </div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+</html>

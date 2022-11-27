@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+
+        form{
+            display:grid;
+            grid-template-columns: 1fr;
+            gap:5px;
+            margin:auto;
+            width:400px
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="navbar">
+        
+      </div>
+      <div>
+        <button><a href="dashboard.html">Dashboard</a></button>
+      </div>
+      <div>
+        <h1>Add Student Data</h1>
+        <form action="" id="student_data" onsubmit="addStudent(event)">
+          <input type="text" id="name" placeholder="Name" />
+          <input type="text" id="course" placeholder="Course" />
+          <input type="number" id="unit" placeholder="Unit" />
+          <input type="url" id="image" placeholder="Image-url" />
+          <input type="text" id="batch" placeholder="Ft-Web Batch No." />
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="index.js"></script>

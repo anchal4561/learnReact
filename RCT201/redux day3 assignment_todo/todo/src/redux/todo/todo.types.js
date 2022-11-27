@@ -1,0 +1,5 @@
+export const GET_TODO="todo/getTodo"
+export const GET_SINGLE_TODO="todo/getSingleTodo"
+export const ADD_TODO="todo/addTodo"
+export const DELETE_TODO="tood/deletetodo"
+export const UPDATE_TODO="todo/updatetodo"

@@ -1,0 +1,10 @@
+db.country.find({region:"Asia"}
+db.country.find({currency:"EUR"})
+db.country.find({"timezones.gmtOffset":3600})
+db.country.find({"timezones.gmtOffset":3600,$or:[{"timezones.abbreviation":"CET"},{"timezones.tzName":"Central European Time"}]})
+db.country.find({ "timezones.1": { $exists: true } })
+db.country.findOne({name:"Barbados"})
+db.country.updateOne({name:"Barbados"},{$set:{capital:"Goa"}})
+db.country.updateOne({name:"Barbados"},{$push:{new_town:"greattown"}})//db.country.updateOne({name:"Bangladesh"},{$pop:{capital2:1}})
+db.country.updateOne( { id: 20 }, { $min: { numeric_code: 25 } } )//db.country.updateOne( { id: 20 }, { $max: { numeric_code: 20 } } )
+db.country.updateOne({name:"Barbados"},{$unset:{capital:""}})

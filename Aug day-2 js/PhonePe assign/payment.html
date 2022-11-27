@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #container{
+     width:300px;
+     height:500px;
+     margin: 20px auto;
+     display:grid; 
+     text-align:center;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    #container>img{
+     display: block;
+     width: 30%;
+     margin:120px auto 0px auto;
+    }
+    #container>h3{
+        margin-top: 0px;
+        align-self: center;
+    }
+    #container>p{
+        /* align-self: baseline; */
+        font-size: smaller;
+        margin-top: 150px;
+    }
+    #container1{
+     width:300px;
+     height:500px;
+     margin: 20px auto;
+     /* display:grid;  */
+     display: none;
+     text-align:center;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+     background-color: rgb(30, 130, 30);
+    }
+    #container1>img{
+     display: block;
+     width: 50%;
+     margin:100px auto 0px auto;
+    }
+    #container1>h3{
+        width: 70%;
+        margin: auto;
+        color: white;
+        align-self: center;
+        margin-top: -120px;
+    }
+     #container2{
+     width:300px;
+     height:500px;
+     margin: 20px auto;
+     /* display:grid;  */
+     display: none;
+     text-align:center;
+     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+    #container2>img{
+     display: block;
+     width: 15%;
+     margin:200px auto 0px auto;
+    }
+    #container2>h3{
+        width: 70%;
+        margin: auto;
+        align-self: center;
+        margin-top: -120px;
+    }
+    </style>
+    
+</head>
+<body>
+    <div id="main">
+        <div id="container">
+        <img src="https://www.pngitem.com/pimgs/m/3-38170_phonepe-logo-png-phone-pe-transparent-png.png" alt="">
+        <h3>Connecting Securely</h3>
+        <p>Please do not press back or close the app</p>
+    </div>
+    <div id="container1">
+     <img src="https://www.freeiconspng.com/uploads/success-icon-10.png" alt="">
+     <h3>Payment of ₹ 1 to Anya successfull.</h3>
+     </div>
+    </div>
+    <div id="container2">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkgmzp85uB4W3KukFZT5faAAXNoJwPf-rnrA&usqp=CAU" alt="">
+     <h3>Payment of ₹ 1 to Anya  has failed.</h3>
+     </div>
+    </div>
+   
+</body>
+</html>
+<script src="payment.js"></script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document</title>
+   <style>
+    *{
+        margin: auto;
+    }
+    #inputs{
+        width:25%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 20px;
+    }
+    #buttons{
+        width: 25%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap:8px;
+        margin: auto;
+        padding:4px;
+    }
+   </style>
+</head>
+<body>
+   <div id="inputs">
+     <input id="num1" type="number" placeholder="enter 1st Number">
+     <input id="num2" type="number" placeholder="enter 2nd Number">
+   </div>
+   <div id="buttons">
+        <button onclick="addition()">Add</button>
+        <button onclick="subtraction()">Subtract</button>
+        <button onclick="multiplication()">Multiply</button>
+        <button onclick="division()">Divide</button>
+    </div>
+
+    <script>
+        let input1 = document.getElementById("num1");
+        let input2 = document.getElementById("num2");
+
+        function addition(){
+            let res=(+input1.value) + (+input2.value)
+            alert(res)
+        }
+        function subtraction(){
+            let res=(+input1.value) - (+input2.value)
+            alert(res)
+        }
+        function multiplication(){
+            let res=(+input1.value) * (+input2.value)
+            alert(res)
+        }
+        function division(){
+            let res=(+input1.value) / (+input2.value)
+            alert(res)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="navbar_config"></div>
+    <div id="data_config"></div>
+</body>
+</html>
+<script type="module">
+import navbar from './components/navbar.js';
+// console.log('navbar:',navbar)
+import {getData,append} from './scripts/fetch&append.js'
+console.log('getdata,append',getData,append)
+let container=document.getElementById('navbar_config')
+//append
+container.innerHTML=navbar();
+//async func always return as promise{arrayobject,string}
+let res=await getData(`https://fakestoreapi.com/products/category/electronics`)
+console.log("res:",res)
+//what {res} & where {data_config}
+let data_container=document.getElementById('data_config')
+
+append(res,data_container);
+
+//get a reference to that button
+</script>

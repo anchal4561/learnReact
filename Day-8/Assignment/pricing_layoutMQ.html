@@ -1,0 +1,143 @@
+<head>
+    <title>
+        Pricing
+    </title>
+    <style>
+        #header{
+            width: 90%;
+            height: auto;
+            text-align: center;
+            margin:auto;
+        }
+        #header>h1{
+            width: 30%;
+            margin:auto;
+        }
+
+        #header>p{
+            width: 42%;
+            margin:auto;
+            margin-top: 20px;
+        }
+        #container{
+            width:70%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: auto;
+            gap:20px;
+            margin: auto;
+            margin-top: 50px;
+
+        }
+        #container>div{
+            text-align: center;
+            padding-bottom: 20px;
+            box-shadow: rgba(149, 157, 165, 0.35) 0px 8px 24px;
+        }
+        #container>div>h1+p{
+            font-style: italic;
+            font-size: small;
+            margin-top: -20px;
+        }
+        #container>div:nth-child(1)>h1{
+            color:green;
+            font-weight: bold;
+        }
+        #container>div:nth-child(2)>h1{
+            color:rgb(231, 116, 21);
+            font-weight: bold;
+        }
+
+        #container>div:nth-child(3)>h1{
+            color:#0E71EB;
+            font-weight: bold;
+        }
+        #container>div>p+p{
+            width: 80%;
+            margin: auto;
+            padding-top: 8px;
+            line-height: 20px;
+        }
+        button{
+             margin-top: 25px;
+             border: 1px solid #0E71EB;
+             color: #0E71EB;
+             background-color: white;
+             border-radius: 5px;
+             padding: 8px 8px;
+            }
+        button:hover{
+            background-color: #0E71EB;
+            color: white;
+            font-size:20px;
+        }
+        @media all and (min-width:481px) and (max-width:781px){
+            #container{
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 20px;
+            }
+            #header>h1{
+            width: 90%;
+            margin: auto;
+        }
+        #header>p{
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        }
+          @media all and (min-width:281px) and (max-width:480px){
+            #container{
+            width: 80%;
+            display: grid;
+            grid-template-columns:1fr;
+            grid-template-rows: repeat(3, auto);
+            gap: 20px;
+            }
+            #header>h1{
+            width: 90%;
+            margin: auto;
+        }
+        #header>p{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Choose a plan that right for your business </h1>
+        <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</p>
+        </div>
+    <div id="container">
+        <div>
+            <h2>Starter Plan</h2>
+            <h1>Free</h1>
+            <p>Per Month</p>
+            <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website.</p>
+            <button>Start Now</button>
+        </div>
+        <div>
+             <h2>Business Plan</h2>
+            <h1>$39.00</h1>
+            <p>Per Month</p>
+            <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website.</p>
+            <button>Start Now</button>
+        </div>
+        <div>
+             <h2>Premium Plan</h2>
+            <h1>$59.00</h1>
+            <p>Per Month</p>
+            <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website.</p>
+            <button>Start Now</button>
+        </div>
+    </div>
+</body>
+</html>

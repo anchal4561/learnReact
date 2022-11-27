@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body>div{
+        text-align: center;
+        margin: 20px;
+         box-shadow: rgba(130, 140, 144, 0.15) 0px 6px 20px;
+      }
+      body>div+div{
+        padding: 30px 0;
+      }
+      form{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 300px;
+        margin:auto;
+        gap: 10px;
+      }
+      button{
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <button id="show_movies">Show Movies</button>
+    </div>
+    <div>
+      <h2>Add Movie</h2>
+      <form action="" id="movies" onsubmit="addMovie(event)">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="date" id="date" placeholder="Release Date" required>
+        <input type="url" id="poster" placeholder="Poster URL">
+        <input type="number" id="rating" placeholder="IMDb rating" required>
+        <input type="submit" id="add_movie" value="Add Movie">
+      </form>
+    </div>
+  </body>
+</html>
+
+<script src="index.js"></script>

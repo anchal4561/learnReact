@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": "11",
+      "title": "avu",
+      "author": "anchal"
+    },
+    {
+      "id": "12",
+      "title": "avii",
+      "author": "anji"
+    },
+    {
+      "id": "21",
+      "title": "kk",
+      "author": "mine"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

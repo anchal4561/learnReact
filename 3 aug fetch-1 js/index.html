@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Fetch
+        </title>
+        <style>
+            #container{
+                margin-top: 40px;
+                display: grid;
+                grid-template-columns:  repeat(4, 1fr);
+            }
+            img{
+                width:30%;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Online Store</h1>
+        <button onclick="sortLH()">sort LH</button>
+        <button onclick="sortHL()">sort HL</button>
+        Filter: <input oninput="filter()" type="text" id="query"/>
+        <div id="container"></div>
+        
+    </body>
+</html>
+<script src="index.js"></script>

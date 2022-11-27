@@ -1,0 +1,22 @@
+use file // for creating & selecting new file
+db.createCollection("users")
+show collections // for checking
+
+db.users.insertOne({first_name:"Anchal",last_name:"Agrawal",email:"anchal@gmail.com",ip_address:"1.22.33.101",age:"26"})
+
+
+
+db.users.insertMany([{"first_name":"Avni","last_name":"goyal","email":"avni@gmail.com","gender":"male","ip_address":"1.22.33.101","age":"26"},{"first_name":"Gagan","last_name":"Kumar","email":"gagan@gmail.com","gender":"male","ip_address":"1.22.33.102","age":"25"},{"first_name":"Dhiraj","last_name":"Salvi","email":"dhiraj@gmail.com","gender":"male","ip_address":"1.22.33.103","age":"25"},{"first_name":"Mansi","last_name":"Jain","email":"mansi@gmail.com","gender":"female","ip_address":"1.22.33.104","age":"24"},{"first_name":"Gullu","last_name":"Singh","email":"gullu@gmail.com","gender":"female","ip_address":"1.22.33.105","age":"22"},{"first_name":"Kartik","last_name":"Khatak","email":"kartik@gmail.com","gender":"male","ip_address":"1.22.33.106","age":"16"},{"first_name":"Gauri","last_name":"Bidwai","email":"gauri@gmail.com","gender":"female","ip_address":"1.22.33.107","age":"23"},{"first_name":"Shilpa","last_name":"Shetty","email":"shilpa@gmail.com","gender":"female","ip_address":"1.22.33.108","age":"45"},{"first_name":"Tony","last_name":"Stark","email":"tony@gmail.com","ip_address":"1.22.33.109","age":"55"},{"first_name":"Steve","last_name":"Rogger","email":"steve@gmail.com","ip_address":"1.22.33.110","age":"35"}])
+
+
+db.users.find({gender:"female"})
+
+db.users.findOne({gender:"female"})
+
+db.users.updateOne({first_name:"Vinay"},{$set:{age:"25"}})
+
+db.users.updateMany({},{$set:{school:"Masai School"}})
+db.users.updateMany({gender:"female"},{$set:{school:"Masai School Alumni"}})
+
+db.users.deleteOne({first_name:"anchal"})
+db.users.deleteMany({gender:"male"})
