@@ -3,9 +3,10 @@ const axios = require('axios');
 const fetch = require("node-fetch")
 
 const app = express();
+const passport=require("./config/google-oauth")
 
-const CLIENT_ID = "8623a707673880d55646"
-const CLIENT_SECRET ="03803c44bd97d09d9b175d6a6b7df65908a2d3d4"
+const CLIENT_ID="0cfdb2dd1b00c7784229"//DOTENV
+const CLIENT_SECRET="93e16f4905a9ef48ea60169e1090dd0ec7cb2288"
 
 app.use(express.urlencoded({extended:true}));
 
@@ -14,6 +15,18 @@ app.use(express.json());
 app.get("/", (req,res)=>{
     res.sendFile(__dirname + "/index.html")
 })
+
+app.get('/users/auth/google',
+  passport.authenticate('google', { scope: ['profile','email'] }));
+
+app.get('/users/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' ,session:false}),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log(req.user)
+    res.send("sign in with google success")
+  // res.redirect('/');
+  });
 
 app.get("/github/callback", async(req,res)=>{
     const {code} = req.query;
@@ -45,6 +58,6 @@ app.get("/github/callback", async(req,res)=>{
     return res.send("sign in with github success")
 })
 
-app.listen(8070,()=>{
+app.listen(8080,()=>{
     console.log("server started")
 })

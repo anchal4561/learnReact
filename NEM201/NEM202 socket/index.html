@@ -1,0 +1,47 @@
+<html>
+    <title>My DOX</title>
+    <body>
+        <form id="form">
+            <input id="inputtext" type="text" autocomplete="off"/>
+            <input type="submit" value="Send"/>
+        </form>
+        <div id="msgs"></div>
+        <script
+         src="/socket.io/socket.io.js"
+         ></script>
+         <script>
+            const socket=io()
+            const form=document.getElementById("form")
+            const input=document.getElementById("inputtext")
+            const msgs=document.getElementById("msgs")
+            form.addEventListener("submit",(e)=>{
+                e.preventDefault()
+              //  console.log("Message",input.value)
+                const message=input.value  
+                socket.emit("newtext",message)
+              input.value="";
+             })   
+
+             socket.on("newtext",(msg)=>{
+              console.log("got new message",msg);
+              const div=document.createElement("div")
+              div.innerText=msg;
+              msgs.appendChild(div)
+             })
+
+             socket.on("newuser",(totalUsers)=>{
+              const div=document.createElement("div")
+              div.innerText="New user joined chat ,total online users: "+totalUsers;
+              msgs.appendChild(div)
+             })
+             
+             socket.on("history",(history)=>{
+             for (const h of history){
+              const div=document.createElement("div")
+              div.innerText=h;
+              msgs.appendChild(div)
+             } 
+             })
+</script>
+    </body>
+</html>

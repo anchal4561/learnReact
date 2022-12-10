@@ -4,9 +4,36 @@ const argon2=require("argon2")
 const UserModel = require("./models/user.model");
 const jwt=require("jsonwebtoken")
 const app=express();
+
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 const blacklist=[]
+const nodemailer=require("nodemailer")
+
+//templating
+// const fs=require("fs/promises")
+
+const fs=require("fs")
+const hbs=require("handlebars")
+const template=hbs.compile(fs.readFileSync("./mail.hbs","utf-8"));
+
+const emailUsername="remington66@ethereal.email"
+const emailPassword="zjAFJ4c2HP9U43Z9tD"
+
+
+
+const transport=nodemailer.createTransport({
+    host:"smtp.ethereal.email",
+    port:587,
+    auth:{
+        user:emailUsername,
+        pass:emailPassword,
+        // oauth2:{
+
+        // }
+    }
+})
+
 
 // app.use((req,res,next)=>{
 // const token=req.headers.authorization;
@@ -63,6 +90,20 @@ app.post("/signup",async(req,res)=>{
     const hash=await argon2.hash(password)
     const user=new UserModel({name,email,password:hash,age});
     await user.save();
+    //user creation success then send mail 
+    // const html =await fs.readFile("./mail.html","utf-8")
+    transport.sendMail({
+        to:email,
+        from:"system@mysite.com",
+        subject:"signup success",
+        // html:`<h2>Hello ${name}</h2><p>Sign up success thank you</p>`
+        // html,
+        // html:html.replace("{{user}}",name)
+        html:template({
+            user:name,
+            license:age>18?"You are eligible":"You are not eligible",
+        })
+    })
     return res.status(201).send("Student created successfully")
 })
 
