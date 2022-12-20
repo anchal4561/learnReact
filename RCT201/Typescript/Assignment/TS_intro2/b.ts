@@ -59,3 +59,31 @@ phonebook({
     firstname:"andfjy",
     lastname:"dfj"
 })
+
+
+
+
+
+type User = {
+    name: string;
+    age: number;
+    occupation: string;
+  };
+  
+  const userData = ({ name, age, occupation }: User) => {
+    return typeof age + " " + typeof name + " " + typeof occupation;
+  };
+  
+  console.log(userData({ name: "anchal", age: 22, occupation: "engineer" }));
+  
+  type Admin = {
+    name: string;
+    age: number;
+    role: string;
+  };
+  
+  const adminData = ({ name, age, role }: Admin) => {
+    return typeof name + " " + typeof age + " " + typeof role;
+  };
+  
+  console.log(adminData({ name: "Anchal", age: 22, role: "sd" }));
