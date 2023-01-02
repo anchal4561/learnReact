@@ -9,7 +9,6 @@ const authMiddleware = async(req,res,next)=>{
 
     const token=req.headers["authorization"]
     if(!token){
-
         return res.send("Unauthorized")
     }
     try{
@@ -48,7 +47,7 @@ app.post("/signup", async(req,res)=>{
  try {
     let existingUser = await User.findOne({email});
      if (existingUser){
-        res.status(404).send("Uer already exist")
+        res.status(404).send("User already exist")
      }else{
         let user = await User.create({
             email,name,password,age,gender

@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive Navbar</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: #34495e;
+		}
+
+		.navbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding: 15px 0;
+			background: #2c3e50;
+			overflow: hidden;
+		}
+
+		.navbar a {
+			float: left;
+			width: 25%;
+			text-align: center;
+			padding: 15px 0;
+			text-decoration: none;
+			color: #fff;
+			font-size: 16px;
+			transition: 0.4s;
+		}
+
+		.navbar a:hover {
+			background: #2980b9;
+		}
+
+		.navbar-toggle {
+			display: none;
+			position: absolute;
+			top: 15px;
+			right: 20px;
+			cursor: pointer;
+		}
+
+		@media screen and (max-width: 480px) {
+			.navbar a {
+				float: none;
+				width: 100%;
+				text-align: left;
+			}
+			.navbar-toggle {
+				display: block;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="navbar">
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Contact</a>
+		<a href="#">Blog</a>
+		<div class="navbar-toggle" onclick="toggleMenu()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function toggleMenu() {
+			var navbar = document.querySelector(".navbar");
+
+			if(navbar.className === "navbar") {
+				navbar.className += " responsive";
+			} else {
+				navbar.className = "navbar";
+			}
+		}
+	</script>
+</body>
+</html>

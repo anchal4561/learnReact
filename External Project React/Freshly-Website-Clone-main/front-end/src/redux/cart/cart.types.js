@@ -1,1 +1,0 @@
-export const CART_GET_SUCCESS = "cart/getSucess";

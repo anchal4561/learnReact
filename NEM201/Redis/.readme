@@ -1,0 +1,6 @@
+command- npm install -g redis-cli
+commmand
+
+rdcli -h redis-16894.c264.ap-south-1-1.ec2.cloud.redislabs.com --port 16894 --auth XF2XDqLi3OKobSMXQz4XZadfK5myjoDd 
+
+io redis doc for nodejs 
